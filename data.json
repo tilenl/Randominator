@@ -1,0 +1,52 @@
+{
+  "data": false,
+  "entity": {
+    "data": false,
+    "human": {
+      "data": true,
+      "points": ["Jon", "Bob"]
+    },
+    "astral object" : {
+      "data": true,
+      "points": ["moon"]
+    },
+    "animal": {
+      "data": true,
+      "points": ["woolfs"]
+    },
+    "plant": {
+      "data": true,
+      "points": ["plants", "seeds", "pumpkins"]
+    }
+  },
+  "adjective": {
+    "data": false,
+    "universal": {
+      "data": true,
+      "points": ["huge", "tiny"]
+    },
+    "human": {
+      "data": true,
+      "points": ["dumb"]
+    },
+    "animal": {
+      "data": true,
+      "points": ["smelly"]
+    },
+    "plant": {
+      "data": true,
+      "points": ["fast growing"]
+    }
+  },
+  "action": {
+    "data": false,
+    "live_being": {
+      "data": true,
+      "points": ["sleeps", "breeds", "hunts", "mocks"]
+    },
+    "other": {
+      "data": true,
+      "points": ["grows", "shrinks"]
+    }
+  }
+}
