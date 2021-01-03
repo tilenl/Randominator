@@ -48,7 +48,6 @@ proc pickRandomAttrib(j_node: JsonNode): string =
 
   for key in j_node.getFields.keys:
     keys.add(key)
-  echo keys  
   return sample(keys)
 
 
@@ -86,6 +85,7 @@ proc genRandom(temp: string, json: JsonNode): string =
     .map(proc (x: string): string =
       if x.startsWith('!'):
         var sub_parts = x.split('.')
+        echo sub_parts
         # we remove the ! sign
         sub_parts[0] = substr(sub_parts[0], 1)
         return pickRandomFrom(subJson(json, sub_parts))
@@ -142,17 +142,6 @@ proc main() =
                          quit(1)
       else: arg_template = parsed_arg[0]
         
-
-  # DEBUG
-  #flag_help.debug()
-  #flag_desc.debug()
-  #flag_use_default.debug()
-  #flag_redir_to_output.debug()
-  #flag_use_arg_template.debug()
-  #num_of_generations.debug()
-  #data_file.debug()
-  #output_file.debug()
-  #arg_template.debug()
 
   # we put everything in this string, so that in the end, we can just print this text to output file or to the console
   var data = ""
