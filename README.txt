@@ -137,3 +137,38 @@ Template instructions:
     
     <!object:people> is a <adjective> looking human, who likes to <action> for fun
     |- this will generate a random string, but because the people data has further nested datapoints it will randomly choose one of them ("good" or "bad" it will choose one of the nested points until it gets to the data)
+
+
+BREAKING CHANGES in V2:
+
+For ease of use the data file has been revamped so that it no longer requires "data" and "points" attributes. This information is now gathered through JsonNode.kind (JArray = data, JObject = not data)
+Because of these changes, the given example must be rewriten into:
+------------- V1 data.json ----------------
+{
+  "data": false,
+  "genre": {
+    "data": true,
+    "points": ["RPG", "Action"]
+  },
+  "object": {
+    "data": false,
+    "human": {
+      "data": true,
+      "points": ["Bob", "Jon"]
+    },
+    "plant": {
+      "data: true,
+      "points": ["Humunus quiskus", "Ordinary pantry squibiskus"]
+    }
+  }
+}
+------------- V2 data.json ----------------
+{
+  "genre": ["RPG", "Action"],
+  "object": {
+    "human": ["Bob", "Jon"],
+    "plant": ["Humunus quiskus", "Ordinary pantry squibiskus"]
+  }
+}
+
+

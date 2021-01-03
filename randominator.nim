@@ -47,9 +47,8 @@ proc pickRandomAttrib(j_node: JsonNode): string =
   var keys = newSeq[string]()
 
   for key in j_node.getFields.keys:
-    if key != "data":
-      keys.add(key)
-  
+    keys.add(key)
+  echo keys  
   return sample(keys)
 
 
@@ -58,9 +57,9 @@ proc pickRandomAttrib(j_node: JsonNode): string =
  # recursively picks a path to data points and picks a random from the
 proc pickRandomFrom(j_node: JsonNode): string =
   # we stop at the data level, from where we return a random data point
-  if j_node["data"].getBool:
+  if j_node.kind == JArray:
     # getElems returns a seq[JsonNode], but we must return a string, so we convert it to a string
-    return sample(j_node["points"].getElems).getStr
+    return sample(j_node.getElems).getStr
 
   # if we are not at the data level, we choose a random node nad go into it
   return pickRandomFrom(j_node[pickRandomAttrib(j_node)])
