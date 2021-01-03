@@ -6,7 +6,7 @@ Tips:
  - if -d flag is not used, the randominator will use "data.json" file, which should be in the same directory
  - if you don't want to tipe the same template each time you want a random idea you can put it into "templates" part of your database
  - if no template is given as an argument it will try to search and get a random template (if there are multiple) from the database
- - if you specifiy template as an argument, surround them with "#" simbols ("#<template_string>#")
+ - if you specifiy template as an argument, surround them with " simbols ("<template_string>")
  - names of non data layers should be named without spaces in their names, as this would make it really hard for cli argument templates to be parsed
  - each layer of data should have a "data" attribute, which specifies if the layer is "data", or if the layer is "label"
    |-> this should always be the first attribute in the data layer (because the random selector chooses between 1 .. end attributes in that layer, 1, because it jumps over "data" attribute)
@@ -14,6 +14,7 @@ Tips:
    |-> "data": true  ... layer is a data layer
  - by allowing the user to precisely label data, it gives much more control over how random the outcome they want to get
    |-> but this does not hinder the overall randomness, as you can still specify the topmost data layer, and the random generator will take care of the random selection
+ - templates should be saved in "template.json" file
 
 Flags:
   -h                    ... prints instructions to the cmd (same as this flags instructions)
@@ -29,7 +30,7 @@ Example:
   1. .\randominator -o:output.txt
   |- generates a random idea using a random template (if there are any) and outputs the idea to |-"output.txt" file (it creates the file if there is none)
 
-  2. .\randominator #A <!genre> where you <!action> <?special> <!object> <?hook># -d:game.json
+  2. .\randominator "A <!genre> where you <!action> <?special> <!object> <?hook>" -d:game.json
   |- generates a random idea, where 
 
 Bad use of data layers ("data.json" file):
@@ -63,7 +64,7 @@ Good use of data layers:
  - lets now divide our previous data into more specific groups, to have more control over sane outcomes
  - now we can imagine some scenarion which we want to make it random
   |-> for example we want an animal which does something to a non living thing. This was not possible beforehand, as the data was all mixed up
- - "<!entity:animal> is hungry and wants to <!action:live_being> a <?adjective:universal> <!entity:plant>
+ - "<!entity.animal> is hungry and wants to <!action.live_being> a <?adjective.universal> <!entity.plant>
     |-> this is very specific randomness!!!
     |-> if you want less specific, as before, you can still go that way
  - "<!entity> is hungry and wants to <!action> a <?adjective> <!entity>
@@ -126,7 +127,7 @@ Good use of data layers:
 
 Template instructions:
   - use "<" and ">" to specify which random data point should be placed there
-  - if you have nested data points (if you have "game" and "music" sets, which contains further nested data) use ":" divider
+  - if you have nested data points (if you have "game" and "music" sets, which contains further nested data) use "." divider
   - there must always be a "!" or "?" simbol in front of the data point name, which specifies whether the data point should always be present ("!" - always generate) or if there is a chance that it will not be in the final outcome ("?" - maybe generate)
   - "/" symbol specifies if there are multiple choices for the given data set
 

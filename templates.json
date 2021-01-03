@@ -1,0 +1,5 @@
+{
+  "game_template": "A <!genre> where you <!action> <!object> <!twist>",
+  "test": "<!entity.human> is going to <!action.live_being> you!",
+  "test2": "<!genre> game where you <?action.live_being>"
+}
