@@ -1,5 +1,8 @@
 RANDOMINATOR is a random sentence generator.
 
+TEST:
+- .\randominator -t:name_gen_blabish -n:10
+
 - give him an input data and a template, and he will produce a random outcome based on the two given things
 
 Tips:
