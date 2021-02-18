@@ -85,7 +85,6 @@ proc genRandom(temp: string, json: JsonNode): string =
     .map(proc (x: string): string =
       if x.startsWith('!'):
         var sub_parts = x.split('.')
-        echo sub_parts
         # we remove the ! sign
         sub_parts[0] = substr(sub_parts[0], 1)
         return pickRandomFrom(subJson(json, sub_parts))

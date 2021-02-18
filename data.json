@@ -67,5 +67,29 @@
     ]
   },
   "pre": ["ah", "sah", "dah"],
-  "post": ["bla", "fa"]
+  "post": ["bla", "fa"],
+  "name": {
+    "blabish": {
+      "first": {
+        "pre": ["A", "B", "D", "C"],
+        "mid": ["ra", "ba", "za"],
+        "post": ["hos" ,"bos", "dos"]
+      },
+      "last": {
+        "pre": ["Za", "Ba", "Da", "Ka", "Ze"],
+        "post": ["ba", "ha", "da", "re", "ka", "po"]
+      }
+    },
+    "english": {
+      "first": {
+        "pre": [],
+        "mid": [],
+        "post": []
+      },
+      "last": {
+        "pre": [],
+        "post": []
+      }
+    }
+  }
 }
